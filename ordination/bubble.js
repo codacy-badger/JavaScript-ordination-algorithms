@@ -1,5 +1,5 @@
 //*
-  * 22-10-2018 Version 1.0.1
+  * 22-10-2018 Version 1.0.2
   * Aun por modificar y optimizar. Está es la primera versión.
   *//
 
@@ -8,12 +8,13 @@
   *//
 function ordination_bubble( miArray, orden = 0) {
 	let ok = true;
+	let nNUm = new RegExp( '\D' );
 	if ( !Array.isArray( miArray ) ){
 		console.error('El parametro pasado no es del tipo array.');
 		ok = false;
 	}else{
 		miArray.forEach( function( element ){
-			if ( !Number.isFinite( element ) ){
+			if ( nNum.test( element ) ){
 				console.error('Valor no valido:' + element);
 				ok = false;
 			}
