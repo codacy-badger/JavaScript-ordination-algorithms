@@ -4,7 +4,8 @@
 
 22-10-2018 Updated Bubble method.
 
-```javascript /*
+```javascript 
+//*
   * Se decide separar en dos funciones distintas para mejorar el rendimiento del proceso.
   *//
 function ordination_bubble( miArray, orden) {
