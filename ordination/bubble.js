@@ -6,15 +6,29 @@
 //*
   * Se decide separar en dos funciones distintas para mejorar el rendimiento del proceso.
   *//
-function ordination_bubble( miArray, orden) {
-  if (orden == 'ASC') {
-  	miArray = ordination_bubbleASC(miArray);  
-  } else {
-    miArray = ordination_bubbleDES(miArray); 
-  }
+function ordination_bubble( miArray, orden = 0) {
+	let ok = true;
+	if ( !Array.isArray( miArray ) ){
+		console.error('El parametro pasado no es del tipo array.');
+		ok = false;
+	}else{
+		miArray.forEach( function( element ){
+			if ( !Number.isFinite( element ) ){
+				console.error('Valor no valido:' + element);
+				ok = false;
+			}
+		});
+	}
+	if ( ok ){
+		if (orden == 'DES') {
+  			miArray = ordination_bubbleDES(miArray);  
+  		} else  {
+   			 miArray = ordination_bubbleASC(miArray); 
+ 		}	
+	}
+  
   return miArray;
 }
-
 //*
   * Ordenación mediante el metodo de la burbuja de forma desdendente.
   *//
